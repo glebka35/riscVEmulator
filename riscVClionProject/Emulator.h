@@ -25,6 +25,7 @@ public:
     void execute(rTypeInstruction *rType);
     void execute(iTypeInstruction *iType);
     void execute(uTypeInstruction *uType);
+    void execute(jTypeInstruction *jType);
     void printState();
 
 };

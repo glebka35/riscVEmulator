@@ -12,13 +12,22 @@
 #define I_TYPE_OPCODE 0x13
 #define I_TYPE_OPCODE_2     0x03
 #define S_TYPE_OPCODE       0x23
-#define SB_TYPE_OPCODE      0x63
+#define B_TYPE_OPCODE       0x63
 #define U_TYPE_OPCODE       0x37
+#define J_TYPE_OPCODE       0x6f
 
 #define add_value 0x33
 #define R_TYPE_MASK 0xfe00707f
 
-#define auipc_value 17
+#define addi_value 0x13
+#define I_TYPE_MASK 0x707f
+
+#define auipc_value 0x17
+#define U_TYPE_MASK 0x7f
+
+#define jal_value   0x6f
+#define J_TYPE_MASK 0x7f
+
 
 class rTypeInstruction {
 public:
@@ -42,7 +51,7 @@ public:
     uint8_t rd;
     uint8_t funct3;
     uint8_t rs1;
-    uint16_t imm_11_0;
+    uint32_t imm12;
 };
 
 class uTypeInstruction {
@@ -52,6 +61,26 @@ public:
     uint32_t fullInstruction;
     uint8_t opcode;
     uint8_t rd;
-    uint32_t imm_31_12;
+    uint32_t imm20;
+};
+
+class bTypeInstruction {
+public:
+    uTypeInstruction(uint32_t instruction);
+
+    uint32_t fullInstruction;
+    uint8_t opcode;
+    uint8_t rd;
+    uint32_t imm20;
+};
+
+class jTypeInstruction {
+public:
+    jTypeInstruction(uint32_t instruction);
+
+    uint32_t fullInstruction;
+    uint8_t opcode;
+    uint8_t rd;
+    uint32_t imm20;
 };
 #endif //RISCVCLIONPROJECT_INSTRUCTIONS_H

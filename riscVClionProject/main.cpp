@@ -18,6 +18,12 @@ int main() {
         case U_TYPE_OPCODE:
             riscV.execute(new uTypeInstruction(myInstruction));
             break;
+        case B_TYPE_OPCODE:
+            riscV.execute(new bTypeInstruction(myInstruction));
+            break;
+        case J_TYPE_OPCODE:
+            riscV.execute(new jTypeInstruction(myInstruction));
+            break;
     }
 
     riscV.printState();
