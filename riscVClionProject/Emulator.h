@@ -32,6 +32,8 @@ public:
     void execute(iTypeInstruction *iType);
     void execute(uTypeInstruction *uType);
     void execute(jTypeInstruction *jType);
+    void execute(sTypeInstruction *sType);
+
 
     void printState();
 };

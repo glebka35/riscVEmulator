@@ -20,6 +20,7 @@
 #define R_TYPE_MASK 0xfe00707f
 
 #define addi_value 0x13
+#define jalr_value 0x67
 #define I_TYPE_MASK 0x707f
 
 #define auipc_value 0x17
@@ -27,6 +28,9 @@
 
 #define jal_value   0x6f
 #define J_TYPE_MASK 0x7f
+
+#define sw_value   0x2023
+#define S_TYPE_MASK 0x707f
 
 
 class rTypeInstruction {
@@ -83,4 +87,17 @@ public:
     uint8_t rd;
     uint32_t imm20;
 };
+
+class sTypeInstruction {
+public:
+    sTypeInstruction(uint32_t instruction);
+
+    uint32_t fullInstruction;
+    uint8_t opcode;
+    uint8_t funct3;
+    uint8_t rs1;
+    uint8_t rs2;
+    uint32_t imm12;
+};
+
 #endif //RISCVCLIONPROJECT_INSTRUCTIONS_H

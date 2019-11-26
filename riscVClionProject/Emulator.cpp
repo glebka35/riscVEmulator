@@ -44,6 +44,13 @@ void Emulator::execute(iTypeInstruction *iType) {
             }
             x[rd] = x[rs1] + imm12;
             break;
+        case jalr_value:
+            if ((imm12 & 0x800) == 2048){
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            x[rd] = pc + 4;
+            pc = (x[rs1] + imm12) & 0xFFFFFFFE;
+            break;
     }
 
 }
@@ -68,6 +75,19 @@ void Emulator::execute(jTypeInstruction *jType) {
             }
 //            x[pc] = x[pc] + x[imm20];
             break;
+    }
+}
+
+void Emulator::execute(sTypeInstruction *sType) {
+    uint8_t rs1 = sType->rs1;
+    uint8_t rs2 = sType->rs2;
+    uint32_t imm12 = sType->imm12;
+    switch (sType->fullInstruction & S_TYPE_MASK) {
+        case sw_value:
+            if ((imm12 & 0x800) == 2048){
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            memory.write_32(rs1 + imm12, rs2);
     }
 }
 
@@ -112,6 +132,9 @@ void Emulator::mainExecuteCommands() {
 //            break;
         case J_TYPE_OPCODE:
             execute(new jTypeInstruction(myInstruction));
+            break;
+        case S_TYPE_OPCODE:
+            execute(new sTypeInstruction(myInstruction));
             break;
     }
 }
