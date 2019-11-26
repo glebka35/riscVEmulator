@@ -4,4 +4,4 @@ project(riscVClionProject)
 set(CMAKE_CXX_STANDARD 14)
 
 
-add_executable(riscVClionProject main.cpp Emulator.cpp Instructions.cpp)
+add_executable(riscVClionProject main.cpp Emulator.cpp Instructions.cpp Memory.cpp Memory.h)

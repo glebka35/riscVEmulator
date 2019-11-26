@@ -6,21 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.cpp
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.cpp
 Emulator.h
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.h
 Instructions.h
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
 iostream
 -
 
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.h
 stdlib.h
 -
 Instructions.h
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
+Memory.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Memory.h
 
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
 cstdint
+-
+
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Memory.h
+iostream
+-
+map
 -
 
