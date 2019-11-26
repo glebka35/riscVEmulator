@@ -66,7 +66,7 @@ public:
 
 class bTypeInstruction {
 public:
-    uTypeInstruction(uint32_t instruction);
+    bTypeInstruction(uint32_t instruction);
 
     uint32_t fullInstruction;
     uint8_t opcode;

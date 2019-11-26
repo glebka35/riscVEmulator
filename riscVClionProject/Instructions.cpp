@@ -20,7 +20,7 @@ iTypeInstruction::iTypeInstruction(uint32_t instruction) {
     rd = (instruction >> 7) & 0x1F;
     funct3 = (instruction >> 12) & 0x3;
     rs1 = (instruction >> 15) & 0x1F;
-    imm12 = (instruction >> 20) & 0x3FF;
+    imm12 = (instruction >> 20) & 0xFFF;
 }
 
 uTypeInstruction::uTypeInstruction(uint32_t instruction) {

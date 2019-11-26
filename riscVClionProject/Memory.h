@@ -12,11 +12,11 @@
 #define PAGE_SIZE 0x00010000
 
 class Memory {
-    std::map<uint32_t, int*> memory;
+    std::map<uint32_t, uint32_t*> memory;
 public:
     ~Memory();
-    int write_32(uint32_t addr, int value);
-    int read_32(uint32_t addr);
+    int write_32(uint32_t addr, uint32_t value);
+    uint32_t read_32(uint32_t addr);
 
     void printMemory();
 
