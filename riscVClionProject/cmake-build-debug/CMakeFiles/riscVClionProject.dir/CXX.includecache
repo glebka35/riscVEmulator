@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.cpp
+Instructions.h
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
+
+/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
+cstdint
+-
+
