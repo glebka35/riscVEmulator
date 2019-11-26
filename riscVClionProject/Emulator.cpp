@@ -47,6 +47,13 @@ void Emulator::execute(rTypeInstruction *rType) {
     }
 }
 
+void Emulator::execute(iTypeInstruction *iType) {
+
+}
+
+void Emulator::execute(uTypeInstruction *uType) {
+
+}
 void Emulator::printState() {
         for(int i = 0; i < 32; i ++){
             std::cout << x[i] << std::endl;

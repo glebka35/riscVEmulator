@@ -18,6 +18,7 @@
 #define add_value 0x33
 #define R_TYPE_MASK 0xfe00707f
 
+#define auipc_value 17
 
 class rTypeInstruction {
 public:
@@ -42,5 +43,15 @@ public:
     uint8_t funct3;
     uint8_t rs1;
     uint16_t imm_11_0;
+};
+
+class uTypeInstruction {
+public:
+    uTypeInstruction(uint32_t instruction);
+
+    uint32_t fullInstruction;
+    uint8_t opcode;
+    uint8_t rd;
+    uint32_t imm_31_12;
 };
 #endif //RISCVCLIONPROJECT_INSTRUCTIONS_H

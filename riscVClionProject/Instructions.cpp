@@ -20,5 +20,12 @@ iTypeInstruction::iTypeInstruction(uint32_t instruction) {
     rd = (instruction >> 7) & 0x1F;
     funct3 = (instruction >> 12) & 0x3;
     rs1 = (instruction >> 15) & 0x1F;
-    imm_11_0 = (instruction >> 20) 0x3FF;
+    imm_11_0 = (instruction >> 20) & 0x3FF;
+}
+
+uTypeInstruction::uTypeInstruction(uint32_t instruction) {
+    fullInstruction = instruction;
+    opcode = instruction & 0x7F;
+    rd = (instruction >> 7) & 0x1F;
+    imm_31_12 = (instruction >> 12) & 0xFFFFF;
 }

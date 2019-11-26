@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.cpp
+/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.cpp
 Emulator.h
-/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.h
+/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.h
 Instructions.h
-/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
+/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h
 iostream
 -
 
-/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.h
+/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.h
 stdlib.h
 -
 Instructions.h
-/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
+/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h
 
-/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.h
+/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h
 cstdint
 -
 
