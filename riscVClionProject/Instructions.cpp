@@ -37,6 +37,17 @@ jTypeInstruction::jTypeInstruction(uint32_t instruction) {
     imm20 = (instruction >> 21) & 0x3FF + (instruction >> 21) & 0x1 + (instruction >> 12) & 0xFF + (instruction >> 31) & 0x1;
 }
 
+iLoadTypeInstruction::iLoadTypeInstruction(uint32_t instruction) {
+    fullInstruction = instruction;
+    opcode = instruction & 0x7F;
+    rd = (instruction >> 7) & 0x1F;
+    func3 = (instruction >> 12) & 0x3;
+    rs1 = (instruction >> 15) & 0x1F;
+    imm12 = (instruction >> 20) & 0xFFF;
+
+}
+
+
 sTypeInstruction::sTypeInstruction(uint32_t instruction) {
     fullInstruction = instruction;
     opcode = instruction & 0x7F;
