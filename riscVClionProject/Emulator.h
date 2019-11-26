@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include "Instructions.h"
+#include "Memory.h"
 
 
 class Emulator {
@@ -17,10 +18,10 @@ public:
     int x[32];
 
     // Pointer to memory
-    int *memory;
+    Memory memory;
 
     //Stack pointer
-    int *stackPointer;
+    uint32_t *stackPointer;
 
     void execute(rTypeInstruction *rType);
     void execute(iTypeInstruction *iType);

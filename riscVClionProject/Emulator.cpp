@@ -15,23 +15,17 @@ Emulator::Emulator() {
     x[6] = 6;
     x[7] = 7;
 
-    // Init memory
-    memory = (int *) malloc(128 * sizeof(int));
-    for (int i = 0; i < 128; i++) {
-        memory[i] = 0;
-    }
-
     // Init stack
-    stackPointer = (int *) malloc(16 * sizeof(int));
+    stackPointer = (uint32_t *) malloc(16 * sizeof(int));
     for (int i = 0; i < 16; i++) {
         stackPointer[i] = 0;
     }
-    std::cout << "Constructor finished" << std::endl;
+    std::cout << "Constructor finished" << std::endl << "----------------------" << std::endl;;
 }
 
 Emulator::~Emulator() {
-    std::cout << "Destructor started" << std::endl;
-    free(memory);
+
+    std::cout  << "----------------------" << std::endl << "Destructor started" << std::endl;
     free(stackPointer);
     std::cout << "Destructor finished" << std::endl;
 }

@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Emulator.cpp.o"
   "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Instructions.cpp.o"
+  "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Memory.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Memory.cpp.o"
   "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/main.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

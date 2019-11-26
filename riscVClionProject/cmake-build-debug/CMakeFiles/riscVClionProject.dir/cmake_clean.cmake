@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/riscVClionProject.dir/Emulator.cpp.o"
   "CMakeFiles/riscVClionProject.dir/Instructions.cpp.o"
+  "CMakeFiles/riscVClionProject.dir/Memory.cpp.o"
   "CMakeFiles/riscVClionProject.dir/main.cpp.o"
   "riscVClionProject"
   "riscVClionProject.pdb"

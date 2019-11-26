@@ -96,6 +96,12 @@
 		<Unit filename="/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.h">
 			<Option target="riscVClionProject"/>
 		</Unit>
+		<Unit filename="/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Memory.cpp">
+			<Option target="riscVClionProject"/>
+		</Unit>
+		<Unit filename="/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Memory.h">
+			<Option target="riscVClionProject"/>
+		</Unit>
 		<Unit filename="/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/main.cpp">
 			<Option target="riscVClionProject"/>
 		</Unit>

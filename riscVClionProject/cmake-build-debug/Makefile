@@ -177,6 +177,33 @@ Instructions.cpp.s:
 	$(MAKE) -f CMakeFiles/riscVClionProject.dir/build.make CMakeFiles/riscVClionProject.dir/Instructions.cpp.s
 .PHONY : Instructions.cpp.s
 
+Memory.o: Memory.cpp.o
+
+.PHONY : Memory.o
+
+# target to build an object file
+Memory.cpp.o:
+	$(MAKE) -f CMakeFiles/riscVClionProject.dir/build.make CMakeFiles/riscVClionProject.dir/Memory.cpp.o
+.PHONY : Memory.cpp.o
+
+Memory.i: Memory.cpp.i
+
+.PHONY : Memory.i
+
+# target to preprocess a source file
+Memory.cpp.i:
+	$(MAKE) -f CMakeFiles/riscVClionProject.dir/build.make CMakeFiles/riscVClionProject.dir/Memory.cpp.i
+.PHONY : Memory.cpp.i
+
+Memory.s: Memory.cpp.s
+
+.PHONY : Memory.s
+
+# target to generate assembly for a file
+Memory.cpp.s:
+	$(MAKE) -f CMakeFiles/riscVClionProject.dir/build.make CMakeFiles/riscVClionProject.dir/Memory.cpp.s
+.PHONY : Memory.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... Instructions.o"
 	@echo "... Instructions.i"
 	@echo "... Instructions.s"
+	@echo "... Memory.o"
+	@echo "... Memory.i"
+	@echo "... Memory.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
