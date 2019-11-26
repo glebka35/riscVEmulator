@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Emulator.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Emulator.cpp.o"
-  "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Instructions.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Instructions.cpp.o"
-  "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/Memory.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Memory.cpp.o"
-  "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/main.cpp" "/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/main.cpp.o"
+  "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Emulator.cpp" "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Emulator.cpp.o"
+  "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Instructions.cpp" "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Instructions.cpp.o"
+  "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/Memory.cpp" "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/Memory.cpp.o"
+  "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/main.cpp" "/Users/gleb/Documents/MIPT/7 семестр/Intel/RiscV/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

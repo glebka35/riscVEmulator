@@ -28,10 +28,11 @@ public:
     void loadProgramToMemory(std::string fileName);
     void mainExecuteCommands();
 
-    void execute(rTypeInstruction *rType);
-    void execute(iTypeInstruction *iType);
-    void execute(uTypeInstruction *uType);
-    void execute(jTypeInstruction *jType);
+    void execute(rTypeInstruction rType);
+    void execute(iTypeInstruction iType);
+    void execute(uTypeInstruction uType);
+    void execute(jTypeInstruction jType);
+    void execute(iLoadTypeInstruction iLoadType);
 
     void printState();
 };
