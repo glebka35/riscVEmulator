@@ -11,14 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12d81223-46d6-4dbb-b2c8-e4b84cf872a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Emulator.h" beforeDir="false" afterPath="$PROJECT_DIR$/Emulator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Instructions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Instructions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Instructions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Instructions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="12d81223-46d6-4dbb-b2c8-e4b84cf872a8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +33,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Debugger.ObjectiveC" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -75,7 +68,7 @@
       <workItem from="1574766144269" duration="280000" />
       <workItem from="1574768323064" duration="1211000" />
       <workItem from="1574772413861" duration="2931000" />
-      <workItem from="1574784661169" duration="7033000" />
+      <workItem from="1574784661169" duration="7480000" />
     </task>
     <servers />
   </component>
