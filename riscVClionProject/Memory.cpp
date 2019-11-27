@@ -5,7 +5,7 @@
 #include "Memory.h"
 
 int Memory::write_32(uint32_t addr, uint32_t value) {
-    if((addr % 4) || (addr < 0))
+    if((addr % 4))
         return 1;
     uint32_t page = addr & PAGE_MASK;
     uint32_t addrInPage = (addr & (~PAGE_MASK))/4;

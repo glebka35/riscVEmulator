@@ -17,9 +17,9 @@ public:
     ~Emulator();
 
     // General purpose registers; x[0] = 0
-    int x[32];
+    uint32_t x[32];
 
-    // Pointer to memory
+    // Main memory
     Memory memory;
 
     //Program Counter
@@ -33,6 +33,7 @@ public:
     void execute(uTypeInstruction uType);
     void execute(jTypeInstruction jType);
     void execute(iLoadTypeInstruction iLoadType);
+    void execute(sTypeInstruction sType);
 
     void printState();
 };

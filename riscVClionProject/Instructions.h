@@ -11,6 +11,7 @@
 #define R_TYPE_OPCODE       0x33
 #define I_TYPE_OPCODE       0x13
 #define I_TYPE_OPCODE_LOAD  0x03
+#define I_TYPE_OPCODE_JALR  0x67
 #define S_TYPE_OPCODE       0x23
 #define B_TYPE_OPCODE       0x63
 #define U_TYPE_OPCODE       0x37
