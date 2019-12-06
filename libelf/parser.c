@@ -74,17 +74,10 @@ int main(int argc, char **argv) {
                 return 1;
             }
 
-            fread(buffer, 1, phdr.p_filesz/4, fd2);
+            fread(buffer, 1, phdr.p_filesz, fd2);
 
             for(i = 0; i < phdr.p_filesz/4; i++){
-//                uint8_t a = (buffer[i] >> 24) & 0xFF;
-//                uint8_t b = (buffer[i] >> 16) & 0xFF;
-//                uint8_t c = (buffer[i] >> 8) & 0xFF;
-//                uint8_t d = (buffer[i] >> 0) & 0xFF;
-//
-//                uint32_t word = (d << 24) + (c << 16) + (b << 8) + (a << 0);
-//                fprintf(fd3, "%ld %x \n", phdr.p_vaddr + i*4, word);
-                fprintf(fd3, "%ld %x \n", phdr.p_vaddr + i*4, buffer[i]);
+                fprintf(fd3, "%ld %u \n", phdr.p_vaddr + i*4, buffer[i]);
             }
         }
     }

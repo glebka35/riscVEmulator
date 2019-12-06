@@ -33,6 +33,7 @@ public:
     void execute(uTypeInstruction uType);
     void execute(jTypeInstruction jType);
     void execute(iLoadTypeInstruction iLoadType);
+    void execute(bTypeInstruction bType);
     void execute(sTypeInstruction sType);
 
     void printState();

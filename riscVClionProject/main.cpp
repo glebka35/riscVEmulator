@@ -15,7 +15,7 @@ int main() {
     riscV.loadProgramToMemory("ptload.txt");
     riscV.mainExecuteCommands();
 
-//    riscV.memory.printMemory();
+   // riscV.memory.printMemory();
     std::cout << "Final state:" << std::endl;
     riscV.printState();
     return 0;

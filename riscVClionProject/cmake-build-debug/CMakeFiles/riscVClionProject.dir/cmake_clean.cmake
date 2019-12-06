@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/riscVClionProject.dir/main.cpp.o"
   "CMakeFiles/riscVClionProject.dir/Emulator.cpp.o"
   "CMakeFiles/riscVClionProject.dir/Instructions.cpp.o"
   "CMakeFiles/riscVClionProject.dir/Memory.cpp.o"
-  "riscVClionProject.pdb"
+  "CMakeFiles/riscVClionProject.dir/main.cpp.o"
   "riscVClionProject"
+  "riscVClionProject.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

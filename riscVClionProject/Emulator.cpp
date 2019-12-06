@@ -37,6 +37,7 @@ void Emulator::loadProgramToMemory(std::string fileName) {
         }
     }
     pc = startAddress;
+    std::cout << pc << std::endl;
 }
 
 void Emulator::execute(rTypeInstruction rType) {
@@ -46,6 +47,14 @@ void Emulator::execute(rTypeInstruction rType) {
     switch (rType.fullInstruction & R_TYPE_MASK) {
         case add_value:
             x[rd] = x[rs1] + x[rs2];
+            pc+=4;
+            break;
+        case xor_value:
+            x[rd] = x[rs1] ^ x[rs2];
+            pc+=4;
+            break;
+        case sub_value:
+            x[rd] = x[rs1] - x[rs2];
             pc+=4;
             break;
     }
@@ -63,12 +72,30 @@ void Emulator::execute(iTypeInstruction iType) {
             x[rd] = x[rs1] + imm12;
             pc+=4;
             break;
+
         case jalr_value:
             if ((imm12 & 0x800) == 2048){
                 imm12 = imm12 | 0xFFFFF000;
             }
             x[rd] = pc + 4;
             pc = (x[rs1] + imm12) & 0xFFFFFFFE;
+            break;
+    }
+    switch (iType.fullInstruction & I_TYPE_MASK_SHIFT) {
+        case slli_value:
+            if ((imm12 & 0x800) == 2048){
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            x[rd] = x[rs1] << imm12;
+            pc+=4;
+            break;
+
+        case srai_value:
+            if ((imm12 & 0x800) == 2048){
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            x[rd] = x[rs1] >> imm12;
+            pc+=4;
             break;
     }
 
@@ -92,7 +119,8 @@ void Emulator::execute(jTypeInstruction jType) {
             if ((imm20 & 0x80000) == 524288){
                 imm20 = imm20 | 0xFFF00000;
             }
-//            x[pc] = x[pc] + x[imm20];
+            x[rd] = pc + 4;
+            pc = pc + imm20;
             break;
     }
 }
@@ -123,13 +151,70 @@ void Emulator::execute(sTypeInstruction sType) {
             }
             memory.write_32(x[rs1] + imm12, x[rs2]);
             pc+=4;
+            break;
+    }
+}
+
+void Emulator::execute(bTypeInstruction bType) {
+    uint8_t rs1 = bType.rs1;
+    uint8_t rs2 = bType.rs2;
+    uint32_t imm12 = bType.imm12;
+    switch (bType.fullInstruction & B_TYPE_MASK) {
+        case blt_value:
+            if ((imm12 & 0x800) == 2048) {
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            if (x[rs1] < x[rs2]) {
+                pc = pc + imm12;
+            } else{
+                pc += 4;
+            }
+            break;
+
+        case beq_value:
+            if ((imm12 & 0x800) == 2048) {
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            if (x[rs1] == x[rs2]) {
+                pc = pc + imm12;
+            } else{
+                pc += 4;
+            }
+            break;
+
+        case bne_value:
+            if ((imm12 & 0x800) == 2048) {
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            if (x[rs1] != x[rs2]) {
+                pc = pc + imm12;
+            } else{
+                pc += 4;
+            }
+            break;
+
+        case bge_value:
+            if ((imm12 & 0x800) == 2048) {
+                imm12 = imm12 | 0xFFFFF000;
+            }
+            if (x[rs1] >= x[rs2]) {
+                pc = pc + imm12;
+            } else{
+                pc += 4;
+            }
+            break;
     }
 }
 
 void Emulator::mainExecuteCommands() {
     bool isEnd = false;
+    int counter = 0;
     while(!isEnd) {
         uint32_t myInstruction = memory.read_32(pc);
+        if(pc == 0x04010113){
+            pc = pc;
+            memory.printMemory();
+        }
         switch (myInstruction & 0x7F) {
             case R_TYPE_OPCODE:
                 execute(rTypeInstruction(myInstruction));
@@ -140,9 +225,9 @@ void Emulator::mainExecuteCommands() {
             case U_TYPE_OPCODE:
                 execute(uTypeInstruction(myInstruction));
                 break;
-//        case B_TYPE_OPCODE:
-//            execute(new bTypeInstruction(myInstruction));
-//            break;
+            case B_TYPE_OPCODE:
+                execute(bTypeInstruction(myInstruction));
+                break;
             case J_TYPE_OPCODE:
                 execute(jTypeInstruction(myInstruction));
                 break;
@@ -156,7 +241,12 @@ void Emulator::mainExecuteCommands() {
                 break;
             default:
                 isEnd = true;
+                std::cout<<"Unrecognized instruction: " << myInstruction << std::endl;
+                std::cout<<"Program counter: " << pc << std::endl;
+                std::cout<<"Instructions amout: " << counter << std::endl;
         }
+        x[0] = 0;
+        counter += 1;
     }
 }
 
