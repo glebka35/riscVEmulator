@@ -211,10 +211,10 @@ void Emulator::mainExecuteCommands() {
     int counter = 0;
     while(!isEnd) {
         uint32_t myInstruction = memory.read_32(pc);
-        if(pc == 0x04010113){
-            pc = pc;
-            memory.printMemory();
-        }
+//        if(pc == 0x04010113){
+//            pc = pc;
+//            memory.printMemory();
+//        }
         switch (myInstruction & 0x7F) {
             case R_TYPE_OPCODE:
                 execute(rTypeInstruction(myInstruction));
@@ -243,7 +243,7 @@ void Emulator::mainExecuteCommands() {
                 isEnd = true;
                 std::cout<<"Unrecognized instruction: " << myInstruction << std::endl;
                 std::cout<<"Program counter: " << pc << std::endl;
-                std::cout<<"Instructions amout: " << counter << std::endl;
+                std::cout<<"Instructions amount: " << counter << std::endl;
         }
         x[0] = 0;
         counter += 1;

@@ -1,3 +1,0 @@
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/riscVClionProject.dir
-/home/asus/Desktop/riscv/riscVEmulator/riscVClionProject/cmake-build-debug/CMakeFiles/edit_cache.dir

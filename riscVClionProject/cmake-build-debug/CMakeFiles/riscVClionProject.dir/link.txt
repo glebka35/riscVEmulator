@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/riscVClionProject.dir/main.cpp.o CMakeFiles/riscVClionProject.dir/Emulator.cpp.o CMakeFiles/riscVClionProject.dir/Instructions.cpp.o CMakeFiles/riscVClionProject.dir/Memory.cpp.o  -o riscVClionProject 
