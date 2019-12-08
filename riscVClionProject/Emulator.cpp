@@ -207,6 +207,8 @@ void Emulator::execute(bTypeInstruction bType) {
 }
 
 void Emulator::mainExecuteCommands() {
+    clock_t start, end;
+    start = clock();
     bool isEnd = false;
     int counter = 0;
     while(!isEnd) {
@@ -241,9 +243,13 @@ void Emulator::mainExecuteCommands() {
                 break;
             default:
                 isEnd = true;
+                end = clock();
+                double t = ((double)end - start)/((double)CLOCKS_PER_SEC);
                 std::cout<<"Unrecognized instruction: " << myInstruction << std::endl;
                 std::cout<<"Program counter: " << pc << std::endl;
                 std::cout<<"Instructions amount: " << counter << std::endl;
+                std::cout<<"Time is " << t << "sec" << std::endl;
+                std::cout<<"Speed is " << counter/t/1000000 << " Mill of instr/sec"<<std::endl;
         }
         x[0] = 0;
         counter += 1;

@@ -9,6 +9,7 @@
 #include <fstream>
 #include "Instructions.h"
 #include "Memory.h"
+#include "time.h"
 
 
 class Emulator {
