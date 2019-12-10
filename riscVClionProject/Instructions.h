@@ -51,6 +51,7 @@
 class rTypeInstruction {
 public:
     rTypeInstruction(uint32_t instruction);
+    rTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;
@@ -64,6 +65,7 @@ public:
 class iTypeInstruction {
 public:
     iTypeInstruction(uint32_t instruction);
+    iTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;
@@ -76,6 +78,7 @@ public:
 class uTypeInstruction {
 public:
     uTypeInstruction(uint32_t instruction);
+    uTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;
@@ -86,6 +89,7 @@ public:
 class bTypeInstruction {
 public:
     bTypeInstruction(uint32_t instruction);
+    bTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;
@@ -99,6 +103,7 @@ public:
 class jTypeInstruction {
 public:
     jTypeInstruction(uint32_t instruction);
+    jTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;
@@ -109,6 +114,7 @@ public:
 class sTypeInstruction {
 public:
     sTypeInstruction(uint32_t instruction);
+    sTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;
@@ -122,6 +128,7 @@ public:
 class iLoadTypeInstruction {
 public:
     iLoadTypeInstruction(uint32_t instruction);
+    iLoadTypeInstruction();
 
     uint32_t fullInstruction;
     uint8_t opcode;

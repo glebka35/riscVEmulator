@@ -4,6 +4,14 @@
 
 #include "Instructions.h"
 
+rTypeInstruction::rTypeInstruction() {}
+iTypeInstruction::iTypeInstruction() {}
+uTypeInstruction::uTypeInstruction() {}
+jTypeInstruction::jTypeInstruction() {}
+iLoadTypeInstruction::iLoadTypeInstruction() {}
+sTypeInstruction::sTypeInstruction() {}
+bTypeInstruction::bTypeInstruction() {}
+
 rTypeInstruction::rTypeInstruction(uint32_t instruction) {
     fullInstruction = instruction;
     opcode = instruction & 0x7F;

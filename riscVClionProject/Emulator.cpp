@@ -213,33 +213,29 @@ void Emulator::mainExecuteCommands() {
     int counter = 0;
     while(!isEnd) {
         uint32_t myInstruction = memory.read_32(pc);
-//        if(pc == 0x04010113){
-//            pc = pc;
-//            memory.printMemory();
-//        }
         switch (myInstruction & 0x7F) {
             case R_TYPE_OPCODE:
-                execute(rTypeInstruction(myInstruction));
+                execute(getrTypeInstruction(myInstruction));
                 break;
             case I_TYPE_OPCODE:
-                execute(iTypeInstruction(myInstruction));
+                execute(getiTypeInstruction(myInstruction));
                 break;
             case U_TYPE_OPCODE:
-                execute(uTypeInstruction(myInstruction));
+                execute(getuTypeInstruction(myInstruction));
                 break;
             case B_TYPE_OPCODE:
-                execute(bTypeInstruction(myInstruction));
+                execute(getbTypeInstruction(myInstruction));
                 break;
             case J_TYPE_OPCODE:
-                execute(jTypeInstruction(myInstruction));
+                execute(getjTypeInstruction(myInstruction));
                 break;
             case S_TYPE_OPCODE:
-                execute(sTypeInstruction(myInstruction));
+                execute(getsTypeInstruction(myInstruction));
                 break;
             case I_TYPE_OPCODE_LOAD:
-                execute(iLoadTypeInstruction(myInstruction));
+                execute(getiLoadTypeInstruction(myInstruction));
             case I_TYPE_OPCODE_JALR:
-                execute(iTypeInstruction(myInstruction));
+                execute(getiTypeInstruction(myInstruction));
                 break;
             default:
                 isEnd = true;
@@ -260,4 +256,74 @@ void Emulator::printState() {
     for(int i = 0; i < 32; i ++){
         std::cout << "R[" << i << "] = " << x[i] << std::endl;
     }
+}
+
+rTypeInstruction Emulator::getrTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(rTypeInstructionCache[i].fullInstruction == instruction)
+            return rTypeInstructionCache[i];
+    rTypeInstruction newInstruction = rTypeInstruction(instruction);
+    rTypeInstructionCache[rTypeIndex] = newInstruction;
+    rTypeIndex = (rTypeIndex + 1) % CACHE_SIZE;
+    return newInstruction;
+}
+
+iTypeInstruction Emulator::getiTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(iTypeInstructionCache[i].fullInstruction == instruction)
+            return iTypeInstructionCache[i];
+    iTypeInstruction newInstruction = iTypeInstruction(instruction);
+    iTypeInstructionCache[iTypeIndex] = newInstruction;
+    iTypeIndex = (iTypeIndex + 1) % CACHE_SIZE;
+    return newInstruction;
+}
+
+uTypeInstruction Emulator::getuTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(uTypeInstructionCache[i].fullInstruction == instruction)
+            return uTypeInstructionCache[i];
+    uTypeInstruction newInstruction = uTypeInstruction(instruction);
+    uTypeInstructionCache[uTypeIndex] = newInstruction;
+    uTypeIndex = (uTypeIndex + 1) % CACHE_SIZE;
+    return newInstruction;
+}
+
+bTypeInstruction Emulator::getbTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(bTypeInstructionCache[i].fullInstruction == instruction)
+            return bTypeInstructionCache[i];
+    bTypeInstruction newInstruction = bTypeInstruction(instruction);
+    bTypeInstructionCache[bTypeIndex] = newInstruction;
+    bTypeIndex = (bTypeIndex + 1) % CACHE_SIZE;
+    return newInstruction;
+}
+
+jTypeInstruction Emulator::getjTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(jTypeInstructionCache[i].fullInstruction == instruction)
+            return jTypeInstructionCache[i];
+    jTypeInstruction newInstruction = jTypeInstruction(instruction);
+    jTypeInstructionCache[jTypeIndex] = newInstruction;
+    jTypeIndex = (jTypeIndex + 1) % CACHE_SIZE;
+    return newInstruction;
+}
+
+sTypeInstruction Emulator::getsTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(sTypeInstructionCache[i].fullInstruction == instruction)
+            return sTypeInstructionCache[i];
+    sTypeInstruction newInstruction = sTypeInstruction(instruction);
+    sTypeInstructionCache[sTypeIndex] = newInstruction;
+    sTypeIndex = (sTypeIndex + 1) % CACHE_SIZE;
+    return newInstruction;
+}
+
+iLoadTypeInstruction Emulator::getiLoadTypeInstruction(uint32_t instruction) {
+    for(int i = 0; i < CACHE_SIZE; i++)
+        if(iLoadTypeInstructionCache[i].fullInstruction == instruction)
+            return iLoadTypeInstructionCache[i];
+    iLoadTypeInstruction newInstruction = iLoadTypeInstruction(instruction);
+    iLoadTypeInstructionCache[iLoadIndex] = newInstruction;
+    iLoadIndex = (iLoadIndex + 1) % CACHE_SIZE;
+    return newInstruction;
 }

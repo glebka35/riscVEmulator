@@ -13,7 +13,7 @@ int main() {
 //    std::cout << "Initial state" << std::endl;
 //    riscV.printState();
 
-    riscV.loadProgramToMemory("ptloadQueen.txt");
+    riscV.loadProgramToMemory("ptloadQueen32.txt");
     riscV.mainExecuteCommands();
 
    // riscV.memory.printMemory();
