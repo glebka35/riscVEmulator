@@ -5,6 +5,8 @@
 #include "Emulator.h"
 #include "Instructions.h"
 #include <iostream>
+#define COSIM
+
 
 Emulator::Emulator() {
     std::cout << "Constructor started" << std::endl;
@@ -13,11 +15,11 @@ Emulator::Emulator() {
         x[i] = 0;
     }
 
+
     std::cout << "Constructor finished" << std::endl << "----------------------" << std::endl;;
 }
 
 Emulator::~Emulator() {
-
     std::cout  << "----------------------" << std::endl << "Destructor started" << std::endl;
     std::cout << "Destructor finished" << std::endl;
 }
@@ -40,27 +42,48 @@ void Emulator::loadProgramToMemory(std::string fileName) {
     std::cout << pc << std::endl;
 }
 
-void Emulator::execute(rTypeInstruction rType) {
+void Emulator::execute(rTypeInstruction rType, std::ofstream& R) {
     uint8_t rs1 = rType.rs1;
     uint8_t rs2 = rType.rs2;
     uint8_t rd = rType.rd;
     switch (rType.fullInstruction & R_TYPE_MASK) {
         case add_value:
             x[rd] = x[rs1] + x[rs2];
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
         case xor_value:
             x[rd] = x[rs1] ^ x[rs2];
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
         case sub_value:
             x[rd] = x[rs1] - x[rs2];
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
     }
 }
 
-void Emulator::execute(iTypeInstruction iType) {
+void Emulator::execute(iTypeInstruction iType, std::ofstream& R) {
     uint8_t rs1 = iType.rs1;
     uint32_t imm12 = iType.imm12;
     uint8_t rd = iType.rd;
@@ -70,6 +93,13 @@ void Emulator::execute(iTypeInstruction iType) {
                 imm12 = imm12 | 0xFFFFF000;
             }
             x[rd] = x[rs1] + imm12;
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
 
@@ -78,6 +108,13 @@ void Emulator::execute(iTypeInstruction iType) {
                 imm12 = imm12 | 0xFFFFF000;
             }
             x[rd] = pc + 4;
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc = (x[rs1] + imm12) & 0xFFFFFFFE;
             break;
     }
@@ -87,6 +124,13 @@ void Emulator::execute(iTypeInstruction iType) {
                 imm12 = imm12 | 0xFFFFF000;
             }
             x[rd] = x[rs1] << imm12;
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
 
@@ -95,6 +139,13 @@ void Emulator::execute(iTypeInstruction iType) {
                 imm12 = imm12 | 0xFFFFF000;
             }
             x[rd] = x[rs1] >> imm12;
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
     }
@@ -111,7 +162,7 @@ void Emulator::execute(uTypeInstruction uType) {
     }
 }
 
-void Emulator::execute(jTypeInstruction jType) {
+void Emulator::execute(jTypeInstruction jType, std::ofstream& R) {
     uint8_t rd = jType.rd;
     uint32_t imm20 = jType.imm20;
     switch (jType.fullInstruction & J_TYPE_MASK) {
@@ -120,12 +171,19 @@ void Emulator::execute(jTypeInstruction jType) {
                 imm20 = imm20 | 0xFFF00000;
             }
             x[rd] = pc + 4;
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc = pc + imm20;
             break;
     }
 }
 
-void Emulator::execute(iLoadTypeInstruction iLoadType) {
+void Emulator::execute(iLoadTypeInstruction iLoadType, std::ofstream& R) {
     uint8_t rs1 = iLoadType.rs1;
     uint32_t imm12 = iLoadType.imm12;
     uint8_t rd = iLoadType.rd;
@@ -135,6 +193,13 @@ void Emulator::execute(iLoadTypeInstruction iLoadType) {
                 imm12 = imm12 | 0xFFFFF000;
             }
             x[rd] = memory.read_32(x[rs1] + imm12);
+            x[0] = 0;
+#ifdef COSIM
+            for (int i = 0; i < 32; i++) {
+                R << x[i] << " ";
+            }
+            R << std::endl;
+#endif
             pc+=4;
             break;
     }
@@ -211,14 +276,19 @@ void Emulator::mainExecuteCommands() {
     start = clock();
     bool isEnd = false;
     int counter = 0;
+#ifdef COSIM
+    std::ofstream R;
+    R.open("functRegisters.txt", std::ios::out);
+#endif
     while(!isEnd) {
         uint32_t myInstruction = memory.read_32(pc);
+
         switch (myInstruction & 0x7F) {
             case R_TYPE_OPCODE:
-                execute(getrTypeInstruction(myInstruction));
+                execute(getrTypeInstruction(myInstruction), R);
                 break;
             case I_TYPE_OPCODE:
-                execute(getiTypeInstruction(myInstruction));
+                execute(getiTypeInstruction(myInstruction), R);
                 break;
             case U_TYPE_OPCODE:
                 execute(getuTypeInstruction(myInstruction));
@@ -227,19 +297,20 @@ void Emulator::mainExecuteCommands() {
                 execute(getbTypeInstruction(myInstruction));
                 break;
             case J_TYPE_OPCODE:
-                execute(getjTypeInstruction(myInstruction));
+                execute(getjTypeInstruction(myInstruction), R);
                 break;
             case S_TYPE_OPCODE:
                 execute(getsTypeInstruction(myInstruction));
                 break;
             case I_TYPE_OPCODE_LOAD:
-                execute(getiLoadTypeInstruction(myInstruction));
+                execute(getiLoadTypeInstruction(myInstruction), R);
             case I_TYPE_OPCODE_JALR:
-                execute(getiTypeInstruction(myInstruction));
+                execute(getiTypeInstruction(myInstruction), R);
                 break;
             default:
                 isEnd = true;
                 end = clock();
+                x[0] = 0;
                 double t = ((double)end - start)/((double)CLOCKS_PER_SEC);
                 std::cout<<"Unrecognized instruction: " << myInstruction << std::endl;
                 std::cout<<"Program counter: " << pc << std::endl;
@@ -250,6 +321,9 @@ void Emulator::mainExecuteCommands() {
         x[0] = 0;
         counter += 1;
     }
+#ifdef COSIM
+    R.close();
+#endif COSIM
 }
 
 void Emulator::printState() {

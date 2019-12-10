@@ -20,7 +20,7 @@ class Emulator {
 public:
     Emulator();
     ~Emulator();
-
+    std::ofstream R;
     // General purpose registers; x[0] = 0
     uint32_t x[32];
 
@@ -55,11 +55,11 @@ public:
     void loadProgramToMemory(std::string fileName);
     void mainExecuteCommands();
 
-    void execute(rTypeInstruction rType);
-    void execute(iTypeInstruction iType);
+    void execute(rTypeInstruction rType, std::ofstream& R);
+    void execute(iTypeInstruction iType, std::ofstream& R);
     void execute(uTypeInstruction uType);
-    void execute(jTypeInstruction jType);
-    void execute(iLoadTypeInstruction iLoadType);
+    void execute(jTypeInstruction jType, std::ofstream& R);
+    void execute(iLoadTypeInstruction iLoadType, std::ofstream& R);
     void execute(bTypeInstruction bType);
     void execute(sTypeInstruction sType);
 
